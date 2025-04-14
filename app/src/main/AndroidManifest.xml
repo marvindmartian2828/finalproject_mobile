@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Location access for map positioning and service discovery -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <!-- Required for network access (Google Maps, Places API) -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- Enables exact time alarms for service reminders -->
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+
+    <!-- For displaying notifications on Android 13+ -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.ProjDraft_AutoVitals"
+        tools:targetApi="31">
+
+        <!-- Google Maps API key for map features -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyA6NjXQDn6GS4ifB-1y8-WuWEvsD1DRymQ" />
+
+        <!-- Main launcher activity -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.ProjDraft_AutoVitals">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- Custom reminder popup (translucent modal) -->
+        <activity
+            android:name=".ui.popup.ReminderPopupActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:exported="true" />
+
+        <!-- Broadcast receiver to trigger reminders -->
+        <receiver android:name=".util.ReminderReceiver" />
+
+    </application>
+
+</manifest>

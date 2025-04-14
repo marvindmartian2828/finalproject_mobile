@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">projDraft_AutoVitals</string>
+    <string name="reminder_title">Reminder: %1$s</string>
+    <string name="reminder_time">Scheduled for %1$s</string>
+</resources>
